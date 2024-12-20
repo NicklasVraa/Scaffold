@@ -13,67 +13,94 @@ Auth: Nicklas Vraa
 
     <style>
         body, html {
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            box-sizing: border-box; background-color: #000000;
-            font-family: Helvetica, sans-serif; line-height: 1.4rem;
-        }
-        .container {
-            max-width: 1200px; margin: 0 auto; box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4rem;
+            background-color: #000000;
+            font-family: Helvetica, sans-serif;
         }
         h1 {
-            font-size: 2rem; margin: 10px 0px 10px;
+            font-size: 2rem;
+            margin: 10px 0 10px;
         }
         h2 {
-            font-size: 1.4rem; margin: 20px 0px 5px;
+            font-size: 1.4rem;
+            margin: 20px 0 5px;
         }
         h3 {
-            font-size: 1rem; margin: 5px 0px;
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+        h4 {
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .menu-bar {
-            position: sticky; top: 0; padding: 10px 30px; display: flex;
-            background-color: #000000; color: white;
-            justify-content: space-between; align-items: center; z-index: 1000;
+            position: sticky;
+            top: 0;
+            padding: 10px 30px;
+            display: flex;
+            background-color: #000000;
+            color: #ffffff;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            /* border-bottom: 1px solid #ffffff; */
         }
         nav {
+            display: flex;
             flex-grow: 1;
         }
         .menu-bar a {
-            color: white; text-decoration: none;
-            margin: 0px 20px 0px 0px; cursor: pointer; font-size: 14px;
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0px 20px 0px 0px;
+            cursor: pointer;
+            font-size: 14px;
         }
         .menu-bar a:hover {
             text-decoration: underline;
         }
-        #burger-menu {
-            display: none; background: none; color: white; font-size: 20px;
-            border: none; cursor: pointer;
-        }
-        #menu-links {
-            display: flex;
-        }
-        .social-icons {
-            display: flex; margin: 0px 10px;
-        }
-        .social-icons a {
-            text-decoration: none;
-            margin: 0px 10px;
-        }
         .menu-bar button {
-            background-color: #000000; color: #FFFFFF; margin-top: -4px;
-            border: none; border-radius: 5px; cursor: pointer; font-size: 14px;
+            background-color: #000000;
+            color: #ffffff;
+            margin-top: -4px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
         }
         .menu-bar button:hover {
             background-color: #222222;
         }
+        #burger-menu {
+            display: none;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .social-icons {
+            display: flex;
+            margin: 0 10px 0 20px;
+            text-decoration: none;
+        }
         #scroll-to-top {
-            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.2); color: #fff;
-            border: none; border-radius: 50%;
-            width: 40px; height: 40px; font-size: 24px; cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            display: flex; justify-content: center; align-items: center;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px; cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: background-color 0.3s ease;
         }
 
@@ -81,37 +108,59 @@ Auth: Nicklas Vraa
             background-color: #222222;
         }
         .media-section {
-            width: 100%; height: 100vh; overflow: hidden; position: relative;
-            background-color: #333; color: white; display: flex;
-            justify-content: center; align-items: center;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: #333333;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .carousel {
-            display: flex; width: 100%; height: 100%;
+            display: flex;
+            width: 100%;
+            height: 100%;
             transition: transform 0.5s ease-in-out;
         }
         .slide {
-            display: flex; justify-content: center; align-items: center;
-            min-width: 100%; height: 100%; font-size: 2rem; text-align: center;
-            background-color: #111111; color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 100%;
+            height: 100%;
+            font-size: 2rem;
+            text-align: center;
+            background-color: #111111;
+            color: white;
         }
         .carousel-controls {
-            position: absolute; top: 48.5%; width: 90%; display: flex;
+            position: absolute;
+            top: 48.5%;
+            width: 90%;
+            display: flex;
             justify-content: space-between;
         }
         .carousel-controls button {
-            font-size: 1rem; border: none; cursor: pointer;
-            background-color: #00000000; color: #DDDDDD;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            background: none;
+            color: #DDDDDD;
         }
         .carousel-controls button:hover {
             color: #ffffff;
         }
         .text-section {
-            background-color: #151515; color: #ffffff; padding: 30px;
+            background-color: #151515;
+            color: #ffffff;
+            padding: 30px;
         }
         .models {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0px;
+            padding: 10px 0;
             gap: 10px;
         }
         .model {
@@ -119,24 +168,29 @@ Auth: Nicklas Vraa
             padding: 20px;
             background-color: #111111;
         }
-        h4 {
-            text-align: center;
-        }
         .design-section {
             padding: 0px;
         }
         .split-view {
-            display: flex; flex-direction: row;
+            display: flex;
+            flex-direction: row;
         }
         .choices {
-            flex: 1; display: flex; flex-direction: column;
-            padding: 30px; order: 1;
-            background-color: #111111; color: #ffffff;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            order: 1;
+            background-color: #111111;
+            color: #ffffff;
         }
         .previews {
-            flex: 1; display: flex; flex-direction: column;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            background-color: #181818; color: #ffffff;
+            background-color: #181818;
+            color: #ffffff;
             gap: 10px;
             padding: 30px;
             order: 2;
@@ -148,26 +202,27 @@ Auth: Nicklas Vraa
             background-color: #111111;
             border: 1px solid #ffffff;
         }
-        .preview img {
-            max-width: 90%; max-height: 90%; border: 2px solid #ccc;
-        }
         .choice-group {
-            margin: 10px 0px 0px 0px;
+            margin: 10px 0 0 0;
         }
         .choice-group label {
-            display: block; margin: 5px 0px;
+            display: block; margin: 5px 0;
         }
         .choice-group-horizontal {
-            margin: 5px 0px;
+            margin: 5px 0;
         }
         .choice-group-horizontal label {
-            margin: 0px 20px 0px 0px;
+            margin: 0 20px 0 0;
         }
         input[type="radio"], input[type="checkbox"] {
-            appearance: none; width: 14px; height: 14px;
-            border: 2px solid #ffffff; border-radius: 10%;
-            background: #111111; cursor: pointer;
-            margin: 0px 10px;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #ffffff;
+            border-radius: 10%;
+            background: #111111;
+            cursor: pointer;
+            margin: 0 10px;
             transform: translateY(1px);
         }
         input[type="radio"]:checked, input[type="checkbox"]:checked {
@@ -177,47 +232,66 @@ Auth: Nicklas Vraa
             margin-bottom: 12px;
         }
         .expand {
-            background: none; border: none; color: #FFFFFF;
-            font-size: 1em; cursor: pointer; padding: 0;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0;
         }
         .details {
-            display: none; overflow: hidden; max-height: 0;
+            display: none;
+            overflow: hidden;
+            max-height: 0;
         }
         .details.show {
-            display: block; max-height: 1000px;
+            display: block;
+            max-height: 1000px;
         }
         ul, ol {
-            margin: 0; padding-bottom: 10px;
+            margin: 0;
+            padding-bottom: 10px;
         }
         ol li::marker {
             font-weight: bold;
         }
         .people {
-            display: flex; flex-direction: column; gap: 20px; padding-top: 10px
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 10px
         }
         .person {
-            display: flex; align-items: center; padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
             background-color: #111111;
-            /* border: 1px solid #ffffff */
         }
         .desc {
-            flex: 3; padding-right: 10px;
+            flex: 3;
+            padding-right: 10px;
         }
         .name-and-links {
-            display: flex; align-items: center;
+            display: flex;
+            align-items: center;
         }
         .name-and-links h3 {
             margin-right: 15px;
         }
         .links a {
-            margin-right: 10px; font-size: 1em;
-            color: #ffffff; text-decoration: none;
+            margin-right: 10px;
+            font-size: 1em;
+            color: #ffffff;
+            text-decoration: none;
         }
         .profile-pic {
-            flex: 1; text-align: center;
+            flex: 1;
+            text-align: center;
+            padding-top: 8px;
         }
         .profile-pic img {
-            max-width: 100%; max-height: 100%;
+            max-width: 100%;
+            max-height: 100%;
         }
         #contact {
             background-color: #111111;
@@ -225,22 +299,28 @@ Auth: Nicklas Vraa
 
         @media screen and (max-width: 768px) {
             .menu-bar {
-                padding: 10px 10px;
+                padding: 10px;
             }
             #burger-menu {
                 display: block;
                 margin-right: 20px;
             }
-            #menu-links {
-                display: none; flex-direction: column; z-index: 1000;
-                background-color: #000; position: absolute;
-                top: 40px; left: 0px; width: 100px; padding: 0px 0px 20px 30px;
+            nav {
+                display: none;
+                flex-direction: column;
+                z-index: 1000;
+                background-color: #000000;
+                position: absolute;
+                top: 40px;
+                left: 0px;
+                width: 100px;
+                padding: 0 0 20px 30px;
             }
-            #menu-links.active {
+            nav.active {
                 display: flex;
             }
-            #menu-links a {
-                color: white; padding: 10px 0px;
+            nav a {
+                padding: 10px 0px;
             }
             .split-view {
                 flex-direction: column;
@@ -261,6 +341,10 @@ Auth: Nicklas Vraa
                 flex-grow: 1;
                 margin: 0;
             }
+            .profile-pic {
+                flex: 2;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -268,7 +352,7 @@ Auth: Nicklas Vraa
 <body><div class="container">
     <div class="menu-bar">
 
-        <button id="burger-menu" onclick="toggle_menu()" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        <button id="burger-menu" onclick="toggle_menu()"><i class="fas fa-bars"></i></button>
 
         <nav id="menu-links">
             <a id="home" class="menu-link" onclick="home()">Scaffold</a>
@@ -279,9 +363,9 @@ Auth: Nicklas Vraa
         </nav>
 
         <div class="social-icons">
-            <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
 
         <button id="language-toggle" onclick="toggle_language()">EN/DA</button>
@@ -291,9 +375,9 @@ Auth: Nicklas Vraa
 
     <section id="showcase" class="media-section">
         <div class="carousel" id="carousel">
-            <div class="slide" id="slide_1">Slide One</div>
-            <div class="slide" id="slide_2">Slide Two</div>
-            <div class="slide" id="slide_3">Slide Three</div>
+            <div class="slide">Slide One</div>
+            <div class="slide">Slide Two</div>
+            <div class="slide">Slide Three</div>
         </div>
         <div class="carousel-controls">
             <button onclick="prev_slide()">&#10094;</button>
@@ -302,29 +386,29 @@ Auth: Nicklas Vraa
     </section>
 
     <section id="welcome" class="text-section">
-        <h1 id="welcome-heading">Scaffold Tiny Homes</h1>
-        <p id="welcome-text">Our mission is to provide <b><i>everyone</i></b> with the opportunity to own a home that is up to modern standards - We do this by offering built-to-order tiny homes.</p>
+        <h1>Scaffold Tiny Homes</h1>
+        <p>Our mission is to provide <b><i>everyone</i></b> with the opportunity to own a home that is up to modern standards - We do this by offering built-to-order tiny homes.</p>
 
         <h2>Why a Scaffold Tiny Home?</h2>
 
-        <p>The tiny house movement is growing rapidly as people seek a simpler, more intentional lifestyle. The benefits of any <b>traditional tiny house</b> are well established: <button class="expand"><b><i> (show more)</i></b></button></p>
+        <p>The tiny house movement is growing rapidly as people seek a simpler, more intentional lifestyle. The benefits of any <b>traditional tiny house</b> are well established: <button class="expand"> <b>[<i>show more...</i>]</b></button></p>
 
-        <span class="details"><ul>
+        <div class="details"><ul>
             <li><b>Lower Cost</b>: Smaller size means reduced construction, maintenance, and utility costs. Heating is more efficient, with less energy needed to maintain a comfortable temperature, leading to long-term savings.</li>
             <li><b>Smaller Footprint</b>: Tiny homes require fewer materials, consume less energy, and leave a smaller footprint, making them more sustainable. Eco-friendly materials and off-grid options can further reduce your carbon footprint.</li>
             <li><b>Increased Mobility</b>: Whether on wheels or a permanent foundation, a tiny home offers unmatched freedom. It’s perfect for those wanting to explore new locations or live closer to nature.</li>
             <li><b>A Simpler Existence</b>: Minimalism forces thoughtful organization and prioritizing experiences over possessions, resulting in a less cluttered, more mindful life focused on what truly matters.</li>
-        </ul></span>
+        </ul></div>
 
-        <p><b>Scaffold Tiny Homes</b> greatly emphasize these strengths. We do this by <b>digitally modelling</b> all homes in 3D-CAD software - down to the last nail - such that the model ultimately contains absolutely all information about the build. This provide us, and therefore you, with a set of additional advantages: <button class="expand"><b><i> (show more)</i></b></button></p>
+        <p><b>Scaffold Tiny Homes</b> greatly emphasize these strengths. We do this by <b>digitally modelling</b> all homes in 3D-CAD software - down to the last nail - such that the model ultimately contains absolutely all information about the build. This provide us, and therefore you, with a set of additional advantages: <button class="expand"> <b>[<i>show more...</i>]</b></button></p>
 
-        <span class="details"><ul>
+        <div class="details"><ul>
             <li><b>Better Designs</b>: We can rapidly iterate on designs to determine the ideal combination of components that will form the perfect home without investing real-world materials. </li>
             <li><b>Better Planning</b>: We can precisely plan out the optimal schedule for every cut, brush stroke and swing of the hammer, eliminating wasted effort and misunderstandings, while enabling parallellized construction.</li>
             <li><b>Complete Optimization</b>: We can use custom software to fully optimize the use of stock material that come in standard dimensions, such as timber beams, plywood sheets, batts insulation, wiring etc, eliminating waste.</li>
             <li><b>Accurate estimates</b>: We know the exact bill-of-materials, as well as the volume and mass of every component, prior to construction, which enables estimates that are decimal-accurate.</li>
             <li><b>Absolute Repairability</b>: We can provide a fully detailed and illustrated manual that allows the home owner to do their own repairs, modifications and upgrades - Having a 3D model is functionally equivalent to having x-ray vision.</li>
-        </ul></span>
+        </ul></div>
 
         <h2>Tiny Home Specs:</h2>
         <p>Regardless of model and configuration, all <b>Scaffold Tiny Homes</b> share these characteristics:</p>
@@ -353,48 +437,48 @@ Auth: Nicklas Vraa
     <section id="design" class="design-section">
         <div class="split-view">
             <div class="choices">
-                <h1 id="design-heading">Configure Your Home</h1>
-                <p id="design-text">Choose how you want your home built and see a preview to the right &#8594;</p>
+                <h1>Configure Your Home</h1>
+                <p>Choose how you want your home built and see a preview to the right or below;</p>
                 <div class="choice-group-horizontal">
-                    <h3 id="standards-heading">Standard</h3>
+                    <h3>Standard</h3>
                     <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-1">DK</span></label>
                     <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-2">EU</span></label>
                     <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-3">UK</span></label>
                     <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-4">US</span></label>
                 </div>
                 <div class="choice-group-horizontal">
-                    <h3 id="model-heading">Model</h3>
+                    <h3>Model</h3>
                     <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-1">Pico</span></label>
                     <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-2">Nano</span></label>
                     <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-3">Micro</span></label>
                 </div>
                 <div class="choice-group">
-                    <h3 id="insulation-heading">Insulation</h3>
+                    <h3>Insulation</h3>
                     <label><input type="radio" name="insulation-options" onclick="update_preview()"> <span id="insulation-option-1">190mm (7-1/2")</span></label>
                     <label><input type="radio" name="insulation-options" onclick="update_preview()"> <span id="insulation-option-2">95mm (3-3/4")</span></label>
                 </div>
                 <div class="choice-group">
-                    <h3 id="second-floor-heading">2nd floor</h3>
+                    <h3>2nd floor</h3>
                     <label><input type="radio" name="second-floor-options" onclick="update_preview()"> <span id="second-floor-option-1">Without 2nd floor</span></label>
                     <label><input type="radio" name="second-floor-options" onclick="update_preview()"> <span id="second-floor-option-2">With half-height 2nd floor</span></label>
                     <label><input type="radio" name="second-floor-options" onclick="update_preview()"> <span id="second-floor-option-3">With full-height 2nd floor</span></label>
                 </div>
                 <div class="choice-group">
-                    <h3 id="addons-heading">Off-grid addons</h3>
+                    <h3>Off-grid addons</h3>
                     <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-1">Adjustable solar panel mounting rack</span></label>
                     <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-2">Complete solar panel system</span></label>
                     <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-3">Roof-mounted, fold-down windmill</span></label>
                     <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-4">Rain water collection and filtration system</span></label>
                 </div>
                 <div class="choice-group">
-                    <h3 id="interior-heading">Interior</h3>
+                    <h3>Interior</h3>
                     <label><input type="checkbox" name="interior-options" onclick="update_preview()"> <span id="interior-option-1">Built-in kitchen</span></label>
                     <label><input type="checkbox" name="interior-options" onclick="update_preview()"> <span id="interior-option-2">Built-in living room furniture</span></label>
                     <label><input type="checkbox" name="interior-options" onclick="update_preview()"> <span id="interior-option-3">built-in bedroom furniture</span></label>
                 </div>
             </div>
             <div class="previews">
-                <h1 id="preview-heading">Preview</h1>
+                <h1>Preview</h1>
                 <div class="preview">
                     <p>3D View Stack</p>
                 </div>
@@ -407,10 +491,10 @@ Auth: Nicklas Vraa
 
     <section id="about" class="text-section">
         <h1>About Us</h1>
-        <p>Scaffold Tiny Homes is a family-run business. We are perfectionists and completionists, and we love building and see ideas turn into reality.</p>
+        <p>Scaffold Tiny Homes is a family-run business. We are perfectionists and completionists, and we love building and see ideas turn into reality. This is not our full-time job. We do this in our spare time, because we enjoy it.</p>
 
         <h2>Motivation</h2>
-        <p><b>Our motivation is twofold</b>:</p>
+        <p>Our motivation is twofold:</p>
         <ol>
             <li>We strive to live a simpler lifestyle, where  freedom takes precedence over material possessions. Achieving greater freedom in life begins with reducing recurring expenses, making full-time work a choice rather than a necessity. This goal is most effectively and sustainably realized by downsizing and taking control of one's own basic utilities. We aim to enable others to practice this way of life to whatever degree they see fit.</li>
 
@@ -461,16 +545,35 @@ Auth: Nicklas Vraa
                             <a href="https://linkedin.com/in/person3" target="_blank"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
-                    <p>Certified smith, decades of practical DIY experience in carpentry, plumbing and electrics, mechanics, etc., and 15+ years as production manager at Riantics/Körber supply chain solutions.</p>
+                    <p>Certified smith/welder, decades of practical DIY experience in carpentry, plumbing and electrics, mechanics, etc. and 15+ years as production manager at Riantics/Körber supply chain solutions.</p>
                     <p>Has fully restored 5+ family-sized homes.</p>
                 </div>
                 <div class="profile-pic">
                     <img src="person3.jpg" alt="Person 3 Profile Picture" onerror="this.onerror=null; this.src='res/default-profile-pic.png';" />
                 </div>
             </div>
+
+            <div class="person">
+                <div class="desc">
+                    <div class="name-and-links">
+                        <h3>Person 4</h3>
+                        <div class="links">
+                            <a href="https://linkedin.com/in/person4" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <p>A decade of practical DIY experience in carpentry, plastering, painting, finishing, organization etc. and 8+ years experience as a landlord.</p>
+                    <p>Has fully restored 5+ family-sized homes.</p>
+                </div>
+                <div class="profile-pic">
+                    <img src="person4.jpg" alt="Person 4 Profile Picture" onerror="this.onerror=null; this.src='res/default-profile-pic.png';" />
+                </div>
+            </div>
         </div>
 
         <h2>Roadmap</h2>
+
+        <p>Our business philosophy is to avoid lending funds at all cost, such that we maintain full control over the building process. This will undoubtably extend time to launch, but will also ensure that the quality of the product is never compromized by feduciary responsibilies.</p>
+
         <p>We will be maintaining an up-to-date roadmap, outlining the direction in which we want to take this business.</p>
     </section>
 
@@ -499,10 +602,10 @@ Auth: Nicklas Vraa
 
                 if (details.classList.contains('show')) {
                     details.classList.remove('show');
-                    this.innerHTML = ' <b><i> (show more)</i></b>';
+                    this.innerHTML = ' <b>[<i>show more...</i>]</b>';
                 } else {
                     details.classList.add('show');
-                    this.innerHTML = '<b><i> (show less)</i></b>';
+                    this.innerHTML = ' <b>[<i>show less...</i>]</b>';
                 }
             });
         });
