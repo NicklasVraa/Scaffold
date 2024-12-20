@@ -34,6 +34,7 @@ Auth: Nicklas Vraa
             background-color: #000000; color: white;
             justify-content: space-between; align-items: center; z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            /* border-bottom: 1px solid #ffffff; */
         }
         nav {
             flex-grow: 1;
@@ -62,7 +63,6 @@ Auth: Nicklas Vraa
         .menu-bar button {
             background-color: #000000; color: #FFFFFF; margin-top: -4px;
             border: none; border-radius: 5px; cursor: pointer; font-size: 14px;
-
         }
         .menu-bar button:hover {
             background-color: #222222;
@@ -108,6 +108,20 @@ Auth: Nicklas Vraa
         .text-section {
             background-color: #151515; color: #ffffff; padding: 30px;
         }
+        .models {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0px;
+            gap: 10px;
+        }
+        .model {
+            flex: 1;
+            padding: 20px;
+            background-color: #111111;
+        }
+        h4 {
+            text-align: center;
+        }
         .design-section {
             padding: 0px;
         }
@@ -116,12 +130,23 @@ Auth: Nicklas Vraa
         }
         .choices {
             flex: 1; display: flex; flex-direction: column;
-            padding: 30px;
+            padding: 30px; order: 1;
             background-color: #111111; color: #ffffff;
         }
-        .preview {
-            flex: 1; display: flex; justify-content: center; align-items: center;
+        .previews {
+            flex: 1; display: flex; flex-direction: column;
+            justify-content: space-between;
             background-color: #181818; color: #ffffff;
+            gap: 10px;
+            padding: 30px;
+            order: 2;
+        }
+        .preview {
+            flex: 1;
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #111111;
+            border: 1px solid #ffffff;
         }
         .preview img {
             max-width: 90%; max-height: 90%; border: 2px solid #ccc;
@@ -171,8 +196,9 @@ Auth: Nicklas Vraa
             display: flex; flex-direction: column; gap: 20px; padding-top: 10px
         }
         .person {
-            display: flex; align-items: center; padding: 20px;
+            display: flex; align-items: center; padding: 10px 20px;
             background-color: #111111;
+            /* border: 1px solid #ffffff */
         }
         .desc {
             flex: 3; padding-right: 10px;
@@ -225,6 +251,16 @@ Auth: Nicklas Vraa
             .choices {
                 order: 1;
             }
+            .models {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 10px;
+            }
+            .model {
+                flex-grow: 1;
+                margin: 0;
+            }
         }
     </style>
 </head>
@@ -267,7 +303,7 @@ Auth: Nicklas Vraa
 
     <section id="welcome" class="text-section">
         <h1 id="welcome-heading">Scaffold Tiny Homes</h1>
-        <p id="welcome-text">Our mission is to provide <b>everyone</b> with the opportunity to own a home - We do this by offering built-to-order tiny homes.</p>
+        <p id="welcome-text">Our mission is to provide <b><i>everyone</i></b> with the opportunity to own a home that is up to modern standards - We do this by offering built-to-order tiny homes.</p>
 
         <h2>Why a Scaffold Tiny Home?</h2>
 
@@ -300,14 +336,24 @@ Auth: Nicklas Vraa
         </ul>
 
         <h2>Scaffold Models</h2>
-        <!-- These dimensions were chosen to minimize material waste, as they correspond with 3, 4 and 5 full-width plywood sheets. -->
-        <p>...</p>
+        <div class="models">
+            <div class="model">
+                <h4>The Pico</h4>
+            </div>
+            <div class="model">
+                <h4>The Nano</h4>
+            </div>
+            <div class="model">
+                <h4>The Micro</h4>
+            </div>
+        </div>
+        <p>The lengths of every model were chosen to minimize material waste and processing, as they correspond to 3, 4 and 5 full-width plywood sheets, which are 1220mm x 2440mm (4ft x 8ft).</p>
     </section>
 
     <section id="design" class="design-section">
         <div class="split-view">
             <div class="choices">
-                <h1 id="design-heading">Customize your home</h2>
+                <h1 id="design-heading">Configure Your Home</h1>
                 <p id="design-text">Choose how you want your home built and see a preview to the right &#8594;</p>
                 <div class="choice-group-horizontal">
                     <h3 id="standards-heading">Standard</h3>
@@ -316,11 +362,11 @@ Auth: Nicklas Vraa
                     <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-3">UK</span></label>
                     <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-4">US</span></label>
                 </div>
-                <div class="choice-group">
+                <div class="choice-group-horizontal">
                     <h3 id="model-heading">Model</h3>
-                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-1">The Pico</span></label>
-                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-2">The Nano</span></label>
-                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-3">The Micro</span></label>
+                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-1">Pico</span></label>
+                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-2">Nano</span></label>
+                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-3">Micro</span></label>
                 </div>
                 <div class="choice-group">
                     <h3 id="insulation-heading">Insulation</h3>
@@ -347,8 +393,14 @@ Auth: Nicklas Vraa
                     <label><input type="checkbox" name="interior-options" onclick="update_preview()"> <span id="interior-option-3">built-in bedroom furniture</span></label>
                 </div>
             </div>
-            <div class="preview">
-                <img id="selected-image" src="res/image1.jpg" alt="Preview" />
+            <div class="previews">
+                <h1 id="preview-heading">Preview</h1>
+                <div class="preview">
+                    <p>3D View Stack</p>
+                </div>
+                <div class="preview">
+                    <p>Floor Plan</p>
+                </div>
             </div>
         </div>
     </section>
@@ -360,7 +412,7 @@ Auth: Nicklas Vraa
         <h2>Motivation</h2>
         <p><b>Our motivation is twofold</b>:</p>
         <ol>
-            <li>We strive to live a simpler lifestyle, where  freedom takes precedence over material possessions. Achieving greater freedom in life begins with reducing recurring expenses, making full-time work a choice rather than a necessity. This goal is most effectively and sustainably realized by downsizing and taking control of our basic needs. We aim to enable others to practice this way of life to whatever degree they see fit.</li>
+            <li>We strive to live a simpler lifestyle, where  freedom takes precedence over material possessions. Achieving greater freedom in life begins with reducing recurring expenses, making full-time work a choice rather than a necessity. This goal is most effectively and sustainably realized by downsizing and taking control of one's own basic utilities. We aim to enable others to practice this way of life to whatever degree they see fit.</li>
 
             <li>The state of the global housing market has made home ownership an increasingly unattainable dream for many. To provide a viable alternative to the traditional housing market, the barrier-of-entry for home building must be lowered all the way to the ground floor. Our mission is to achieve this by offering complete homes - compact in form yet full of potential - that are fully self-serviceable and upgradeable, with documentation that assumes no prior knowledge on part of the home owner.</li>
         </ol>
@@ -428,7 +480,7 @@ Auth: Nicklas Vraa
 
         <p>At the moment, we are in the start-up phase, but you'll be placed on an <b>informal waiting list</b>. We use this to guage interest in the various configurations. When we are ready to build, we will notify you.</p>
 
-        <p>We want this endeavor to be community-driven, e.g. we appreciate ideas, designs and feedback. If you want to participate in building your own home, you are also more than welcome to do so.</p>
+        <p>We want this endeavor to be community-driven, i.e. we appreciate ideas, designs and feedback. If you want to participate in building your own home, you are also more than welcome to do so.</p>
     </section>
 
     <script>
