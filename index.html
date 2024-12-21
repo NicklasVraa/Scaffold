@@ -168,14 +168,14 @@ Auth: Nicklas Vraa
             padding: 20px;
             background-color: #111111;
         }
-        .design-section {
+        .configure-section {
             padding: 0px;
         }
         .split-view {
             display: flex;
             flex-direction: row;
         }
-        .choices {
+        .options {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -202,16 +202,16 @@ Auth: Nicklas Vraa
             background-color: #111111;
             border: 1px solid #ffffff;
         }
-        .choice-group {
+        .options-group {
             margin: 10px 0 0 0;
         }
-        .choice-group label {
+        .options-group label {
             display: block; margin: 5px 0;
         }
-        .choice-group-horizontal {
+        .options-group-horizontal {
             margin: 5px 0;
         }
-        .choice-group-horizontal label {
+        .options-group-horizontal label {
             margin: 0 20px 0 0;
         }
         input[type="radio"], input[type="checkbox"] {
@@ -296,6 +296,22 @@ Auth: Nicklas Vraa
         #contact {
             background-color: #111111;
         }
+        input:disabled {
+            cursor: not-allowed;
+            opacity: 0.4;
+        }
+        #generate-code-button {
+            margin: 20px 0 0 0;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: black;
+            color: #ffffff;
+            border-radius: 5px;
+            border: none;
+        }
+        #generate-code-button:hover {
+            background-color: #222222;
+        }
 
         @media screen and (max-width: 768px) {
             .menu-bar {
@@ -328,7 +344,7 @@ Auth: Nicklas Vraa
             .preview {
                 order: 2;
             }
-            .choices {
+            .options {
                 order: 1;
             }
             .models {
@@ -357,7 +373,7 @@ Auth: Nicklas Vraa
         <nav id="menu-links">
             <a id="home" class="menu-link" onclick="home()">Scaffold</a>
             <a href="#welcome" class="menu-link" onclick="navigate(event, 'welcome')"><span id="welcome-link">Welcome</span></a>
-            <a href="#design" class="menu-link" onclick="navigate(event, 'design')"><span id="design-link">Design</span></a>
+            <a href="#configure" class="menu-link" onclick="navigate(event, 'configure')"><span id="configure-link">Configure</span></a>
             <a href="#about" class="menu-link" onclick="navigate(event, 'about')"><span id="about-link">About</span></a>
             <a href="#contact" class="menu-link" onclick="navigate(event, 'contact')"><span id="contact-link">Contact</span></a>
         </nav>
@@ -434,48 +450,43 @@ Auth: Nicklas Vraa
         <p>The lengths of every model were chosen to minimize material waste and processing, as they correspond to 3, 4 and 5 full-width plywood sheets, which are 1220mm x 2440mm (4ft x 8ft).</p>
     </section>
 
-    <section id="design" class="design-section">
+    <section id="configure" class="configure-section">
         <div class="split-view">
-            <div class="choices">
+            <div class="options">
                 <h1>Configure Your Home</h1>
-                <p>Choose how you want your home built and see a preview to the right or below;</p>
-                <div class="choice-group-horizontal">
+                <p>Choose how you want your home built. Unavailable options are planned, but not yet fully implemented.</p>
+                <div class="options-group-horizontal">
                     <h3>Standard</h3>
-                    <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-1">DK</span></label>
-                    <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-2">EU</span></label>
-                    <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-3">UK</span></label>
-                    <label><input type="radio" name="standards-options" onclick="update_preview()"> <span id="standards-option-4">US</span></label>
+                    <label><input type="radio" name="standard" id="dk" onclick="update_preview()" checked>DK</label>
+                    <label><input type="radio" name="standard" id="eu" onclick="update_preview()" disabled>EU</label>
+                    <label><input type="radio" name="standard" id="uk" onclick="update_preview()" disabled>UK</label>
+                    <label><input type="radio" name="standard" id="us" onclick="update_preview()" disabled>US</label>
                 </div>
-                <div class="choice-group-horizontal">
+                <div class="options-group-horizontal">
                     <h3>Model</h3>
-                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-1">Pico</span></label>
-                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-2">Nano</span></label>
-                    <label><input type="radio" name="model-options" onclick="update_preview()"> <span id="model-option-3">Micro</span></label>
+                    <label><input type="radio" name="model" id="pico" onclick="update_preview()" disabled>Pico</label>
+                    <label><input type="radio" name="model" id="nano" onclick="update_preview()" checked>Nano</label>
+                    <label><input type="radio" name="model" id="micro" onclick="update_preview()" disabled>Micro</label>
                 </div>
-                <div class="choice-group">
-                    <h3>Insulation</h3>
-                    <label><input type="radio" name="insulation-options" onclick="update_preview()"> <span id="insulation-option-1">190mm (7-1/2")</span></label>
-                    <label><input type="radio" name="insulation-options" onclick="update_preview()"> <span id="insulation-option-2">95mm (3-3/4")</span></label>
-                </div>
-                <div class="choice-group">
+                <div class="options-group">
                     <h3>2nd floor</h3>
-                    <label><input type="radio" name="second-floor-options" onclick="update_preview()"> <span id="second-floor-option-1">Without 2nd floor</span></label>
-                    <label><input type="radio" name="second-floor-options" onclick="update_preview()"> <span id="second-floor-option-2">With half-height 2nd floor</span></label>
-                    <label><input type="radio" name="second-floor-options" onclick="update_preview()"> <span id="second-floor-option-3">With full-height 2nd floor</span></label>
+                    <label><input type="radio" name="second" id="none" onclick="update_preview()">Without 2nd floor</label>
+                    <label><input type="radio" name="second" id="half" onclick="update_preview()"  checked>With half-height 2nd floor</label>
+                    <label><input type="radio" name="second" id="full" onclick="update_preview()" disabled>With full-height 2nd floor</label>
                 </div>
-                <div class="choice-group">
+                <div class="options-group">
+                    <h3>Walls</h3>
+                    <label><input type="radio" name="wall" id="95" onclick="update_preview()" disabled>95mm (3 3/4") single stud</label>
+                    <label><input type="radio" name="wall" id="195mm" onclick="update_preview()">195mm (7 11/16") double stud</label>
+                </div>
+                <div class="options-group">
                     <h3>Off-grid addons</h3>
-                    <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-1">Adjustable solar panel mounting rack</span></label>
-                    <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-2">Complete solar panel system</span></label>
-                    <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-3">Roof-mounted, fold-down windmill</span></label>
-                    <label><input type="checkbox" name="addons-options" onclick="update_preview()"> <span id="addons-option-4">Rain water collection and filtration system</span></label>
+                    <label><input type="checkbox" name="addons" id="solar" onclick="update_preview()" disabled>Adjustable solar panel system</label>
+                    <label><input type="checkbox" name="addons" id="wind" onclick="update_preview()" disabled>Roof-mounted, fold-down windmill</label>
+                    <label><input type="checkbox" name="addons" id="rain" onclick="update_preview()" disabled>Rain water filtration system</label>
                 </div>
-                <div class="choice-group">
-                    <h3>Interior</h3>
-                    <label><input type="checkbox" name="interior-options" onclick="update_preview()"> <span id="interior-option-1">Built-in kitchen</span></label>
-                    <label><input type="checkbox" name="interior-options" onclick="update_preview()"> <span id="interior-option-2">Built-in living room furniture</span></label>
-                    <label><input type="checkbox" name="interior-options" onclick="update_preview()"> <span id="interior-option-3">built-in bedroom furniture</span></label>
-                </div>
+
+                <button id="generate-code-button" onclick="generateCode()">Generate Code</button>
             </div>
             <div class="previews">
                 <h1>Preview</h1>
@@ -529,7 +540,7 @@ Auth: Nicklas Vraa
                             <a href="https://github.com/person2" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <p>MSc. Computer Engineering, specializing in server architecture, system-level programming, micro-computing, and human interface design.</p>
+                    <p>MSc. Computer Engineering, specializing in server architecture, system-level programming, micro-computing, and human interface configure.</p>
                     <p>2+ years of experience restoring homes.</p>
                 </div>
                 <div class="profile-pic">
@@ -592,6 +603,41 @@ Auth: Nicklas Vraa
         const slides = document.querySelectorAll('.slide');
         const TEXT = { en: { /* Dict. */}, da: { /* Dict. */}};
 
+        function generateCode() {
+            const standardOptions = { dk: 1, eu: 2, uk: 3, us: 4 };
+            const modelOptions = { pico: 1, nano: 2, micro: 3 };
+            const secondFloorOptions = { none: 1, half: 2, full: 3 };
+            const wallOptions = { "95": 1, "195mm": 2 };
+
+            const standard = getSelectedOption("standard", standardOptions) || 1;
+            const model = getSelectedOption("model", modelOptions) || 2;
+            const secondFloor = getSelectedOption("second", secondFloorOptions) || 2;
+            const walls = getSelectedOption("wall", wallOptions) || 2;
+            const addons = [
+                document.getElementById("solar").checked ? 1 : 0,
+                document.getElementById("wind").checked ? 1 : 0,
+                document.getElementById("rain").checked ? 1 : 0
+            ].join("");
+
+            const code = `${standard}-${model}${secondFloor}${walls}-${addons}`;
+            document.getElementById("generate-code-button").textContent = code + " copied to clipboard";
+            navigator.clipboard.writeText(code);
+        }
+
+        function getSelectedOption(groupName, optionsMap) {
+            const radios = document.getElementsByName(groupName);
+            for (const radio of radios) {
+                if (radio.checked) {
+                    return optionsMap[radio.id];
+                }
+            }
+            return null;
+        }
+
+        function update_preview() {
+            document.getElementById("generate-code-button").textContent = "Generate Code";
+        }
+
         function home() {
             window.scrollTo({top: 0, behavior: "smooth"});
         }
@@ -650,11 +696,6 @@ Auth: Nicklas Vraa
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             update_carousel();
         }
-
-        function update_preview() {
-            /* TODO */
-        }
-
     </script>
 </div></body>
 </html>
